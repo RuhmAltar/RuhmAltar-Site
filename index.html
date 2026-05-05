@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="RuhmAltar Groupe est une structure creative et strategique specialisee dans la production artistique, l'evenementiel et le developpement de talents. Notre approche repose sur trois piliers : elever les talents, structurer la vision et creer un impact durable.">
+  <title>RuhmAltar Groupe | Vision, creation, impact</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    :root {
+      --ink: #07080d;
+      --ink-soft: #11131c;
+      --panel: rgba(255, 255, 255, .075);
+      --panel-strong: rgba(255, 255, 255, .11);
+      --gold: #f6c94a;
+      --gold-deep: #b37a18;
+      --cream: #fff6dd;
+      --text: #ffffff;
+      --muted: #c8cad6;
+      --line: rgba(255, 255, 255, .14);
+      --shadow: 0 24px 80px rgba(0, 0, 0, .36);
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Manrope, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(246, 201, 74, .16), transparent 34rem),
+        linear-gradient(135deg, #07080d 0%, #11131c 52%, #08090f 100%);
+      line-height: 1.6;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, .035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .035) 1px, transparent 1px);
+      background-size: 72px 72px;
+      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, .8), transparent 72%);
+    }
+
+    img,
+    video {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .shell {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .page-loader {
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at center, rgba(246, 201, 74, .18), transparent 20rem),
+        rgba(7, 8, 13, .96);
+      transition: opacity .55s ease, visibility .55s ease;
+    }
+
+    .page-loader.hide {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .loader-content {
+      display: grid;
+      justify-items: center;
+      gap: 16px;
+      color: var(--cream);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .loader-logo {
+      width: 86px;
+      height: 86px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--cream), var(--gold));
+      box-shadow: 0 22px 60px rgba(0, 0, 0, .4), 0 0 0 1px rgba(246, 201, 74, .35);
+      animation: discSpin 1.1s linear infinite;
+    }
+
+    .loader-logo img {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .topbar {
+      position: fixed;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 40;
+      width: min(var(--max), calc(100% - 32px));
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(7, 8, 13, .72);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 18px 60px rgba(0, 0, 0, .24);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-width: max-content;
+      font-weight: 800;
+      letter-spacing: .02em;
+    }
+
+    .brand-disc {
+      width: 42px;
+      height: 42px;
+      position: relative;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle, rgba(255, 246, 221, .95) 0 18%, rgba(246, 201, 74, .95) 19% 42%, rgba(10, 10, 14, .95) 43% 100%);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, .26), 0 0 0 1px rgba(246, 201, 74, .24);
+    }
+
+    .brand-disc::after {
+      content: "";
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--ink);
+      box-shadow: 0 0 0 2px rgba(255, 246, 221, .72);
+    }
+
+    .brand-disc img {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: var(--gold);
+      animation: discSpin 7s linear infinite;
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: #15120a;
+      background: linear-gradient(135deg, var(--cream), var(--gold));
+      font-family: "Playfair Display", serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      animation: discSpin 7s linear infinite;
+    }
+
+    @keyframes discSpin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      color: var(--muted);
+      font-size: .9rem;
+      font-weight: 700;
+    }
+
+    .nav-links a {
+      padding: 10px 13px;
+      border-radius: 999px;
+      transition: color .25s ease, background .25s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+      background: rgba(255, 255, 255, .08);
+    }
+
+    .btn {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 12px 18px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font-weight: 800;
+      transition: transform .25s ease, box-shadow .25s ease, background .25s ease, border-color .25s ease;
+      white-space: nowrap;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary,
+    .primary {
+      color: #171103;
+      background: linear-gradient(135deg, var(--cream), var(--gold) 60%, #d69b24);
+      box-shadow: 0 16px 34px rgba(246, 201, 74, .22);
+    }
+
+    .btn-ghost,
+    .secondary {
+      border-color: rgba(255, 255, 255, .46);
+      background: rgba(255, 255, 255, .08);
+      color: var(--text);
+    }
+
+    .float-nav {
+      position: fixed;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: grid;
+      gap: 10px;
+      z-index: 35;
+    }
+
+    .float-nav a {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      color: var(--muted);
+      background: rgba(7, 8, 13, .68);
+      backdrop-filter: blur(14px);
+      transition: color .25s ease, background .25s ease, transform .25s ease;
+    }
+
+    .float-nav a:hover {
+      color: #161004;
+      background: var(--gold);
+      transform: translateX(-3px);
+    }
+
+    .hero {
+      min-height: 100svh;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 138px 20px 70px;
+      text-align: center;
+      background:
+        linear-gradient(rgba(7, 8, 13, .1), rgba(7, 8, 13, .72)),
+        url("https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1800&q=80") center/cover;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background:
+        radial-gradient(circle at 50% 34%, rgba(246, 201, 74, .22), transparent 20rem),
+        linear-gradient(to top, var(--ink), transparent 46%);
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: rgba(0, 0, 0, .55);
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+      width: min(900px, 100%);
+      animation: fadeIn 1.2s ease both;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(26px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .logo {
+      width: 126px;
+      height: 126px;
+      margin: 0 auto 18px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: linear-gradient(135deg, var(--cream), var(--gold));
+      box-shadow: 0 22px 58px rgba(0, 0, 0, .38), 0 0 0 1px rgba(246, 201, 74, .34);
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 880px;
+      margin: 0 auto 16px;
+      font-size: clamp(3.15rem, 7vw, 6.7rem);
+      line-height: .93;
+      letter-spacing: 0;
+      font-weight: 800;
+    }
+
+    .subtitle {
+      margin: 0 auto 14px;
+      color: var(--gold);
+      font-size: clamp(1rem, 2.4vw, 1.35rem);
+      font-weight: 800;
+    }
+
+    .desc {
+      max-width: 760px;
+      margin: 0 auto 30px;
+      color: var(--muted);
+      font-size: clamp(1rem, 2vw, 1.2rem);
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 0;
+    }
+
+    section {
+      padding: 92px 0;
+    }
+
+    .transition-note {
+      padding: 34px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, .045);
+      text-align: center;
+    }
+
+    .transition-note strong {
+      display: block;
+      color: var(--gold);
+      font-size: clamp(1.2rem, 3vw, 2rem);
+      line-height: 1.2;
+    }
+
+    .transition-note span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 36px;
+    }
+
+    .section-head.center {
+      margin-inline: auto;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--gold);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin-bottom: 14px;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .section-head p,
+    .section-copy {
+      color: var(--muted);
+      font-size: 1.04rem;
+    }
+
+    .tabs {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, .06);
+      box-shadow: var(--shadow);
+    }
+
+    .tab-buttons {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1px;
+      background: var(--line);
+    }
+
+    .tab-button {
+      min-height: 58px;
+      border: 0;
+      padding: 14px 16px;
+      color: var(--muted);
+      background: rgba(7, 8, 13, .88);
+      font: inherit;
+      font-weight: 800;
+      cursor: pointer;
+      transition: color .25s ease, background .25s ease;
+    }
+
+    .tab-button.active,
+    .tab-button:hover {
+      color: #171103;
+      background: var(--gold);
+    }
+
+    .tab-panel {
+      display: none;
+      padding: 34px;
+    }
+
+    .tab-panel.active {
+      display: block;
+    }
+
+    .tab-panel p {
+      color: var(--muted);
+      font-size: 1.04rem;
+    }
+
+    .tab-panel ul {
+      display: grid;
+      gap: 12px;
+      margin: 20px 0 0;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    .quote {
+      margin: 22px 0 0;
+      padding-left: 18px;
+      border-left: 3px solid var(--gold);
+      color: var(--cream);
+      font-size: 1.08rem;
+      font-weight: 700;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      min-height: 100%;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: linear-gradient(180deg, var(--panel-strong), rgba(255, 255, 255, .045));
+      box-shadow: 0 18px 55px rgba(0, 0, 0, .2);
+    }
+
+    .service-card {
+      padding: 26px;
+    }
+
+    .icon-box {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 22px;
+      border-radius: 50%;
+      color: #171103;
+      background: var(--gold);
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+
+    .card p {
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    .about-band {
+      display: grid;
+      grid-template-columns: .85fr 1fr;
+      gap: 34px;
+      align-items: center;
+      padding: 34px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(246, 201, 74, .12), transparent 40%),
+        rgba(255, 255, 255, .06);
+      box-shadow: var(--shadow);
+    }
+
+    .about-image {
+      min-height: 420px;
+      border-radius: 8px;
+      background:
+        linear-gradient(to top, rgba(7, 8, 13, .68), transparent),
+        url("https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1100&q=80") center/cover;
+    }
+
+    .team-card img {
+      width: 100%;
+      aspect-ratio: 1.25 / 1;
+      object-fit: cover;
+    }
+
+    .team-card .card-content {
+      padding: 22px;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .pill {
+      padding: 7px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--cream);
+      background: rgba(255, 255, 255, .05);
+      font-size: .78rem;
+      font-weight: 800;
+    }
+
+    .impact {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--line);
+    }
+
+    .impact-item {
+      padding: 26px;
+      background: rgba(255, 255, 255, .065);
+    }
+
+    .impact-item strong {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--gold);
+      font-size: 1.9rem;
+      line-height: 1;
+    }
+
+    .impact-item span {
+      color: var(--muted);
+    }
+
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .contact-card,
+    .contact-form {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .07);
+      box-shadow: 0 18px 55px rgba(0, 0, 0, .2);
+    }
+
+    .contact-card {
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .contact-line {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--muted);
+      overflow-wrap: anywhere;
+    }
+
+    .contact-line i {
+      color: var(--gold);
+      flex: 0 0 auto;
+    }
+
+    .contact-form {
+      padding: 24px;
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+    }
+
+    .field-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    label {
+      display: grid;
+      gap: 7px;
+      color: var(--cream);
+      font-size: .82rem;
+      font-weight: 800;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      outline: none;
+      padding: 14px 15px;
+      color: var(--text);
+      background: rgba(7, 8, 13, .62);
+      font: inherit;
+    }
+
+    textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: rgba(246, 201, 74, .75);
+      box-shadow: 0 0 0 4px rgba(246, 201, 74, .1);
+    }
+
+    .service-logos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      padding-bottom: 8px;
+    }
+
+    .service-logo {
+      flex: 0 0 auto;
+      display: grid;
+      justify-items: center;
+      gap: 12px;
+      min-width: 190px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .07);
+      box-shadow: 0 18px 55px rgba(0, 0, 0, .18);
+    }
+
+    .service-logo-img {
+      width: auto;
+      height: 4.02cm;
+      max-width: 170px;
+      object-fit: contain;
+      filter: drop-shadow(0 12px 24px rgba(0, 0, 0, .35));
+    }
+
+    .service-logo span {
+      color: var(--cream);
+      font-weight: 800;
+      text-align: center;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 30px 0;
+      color: var(--muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .socials {
+      display: flex;
+      gap: 10px;
+    }
+
+    .socials a {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      color: var(--cream);
+      background: rgba(255, 255, 255, .05);
+    }
+
+    @media (max-width: 980px) {
+      .topbar {
+        border-radius: 20px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .about-band,
+      .contact-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .grid,
+      .impact {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .tab-buttons {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 680px) {
+      .shell {
+        width: min(100% - 28px, var(--max));
+      }
+
+      .topbar {
+        top: 10px;
+        width: calc(100% - 20px);
+        padding: 10px;
+      }
+
+      .brand span:last-child {
+        display: none;
+      }
+
+      .float-nav {
+        right: 50%;
+        top: auto;
+        bottom: 14px;
+        transform: translateX(50%);
+        display: flex;
+        flex-direction: row;
+        padding: 7px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: rgba(7, 8, 13, .76);
+        backdrop-filter: blur(14px);
+      }
+
+      .float-nav a {
+        width: 40px;
+        height: 40px;
+        background: transparent;
+        border: 0;
+      }
+
+      .hero {
+        min-height: 100svh;
+        padding: 112px 14px 86px;
+      }
+
+      h1 {
+        font-size: clamp(2.8rem, 15vw, 4.8rem);
+      }
+
+      .buttons,
+      .field-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .buttons .btn {
+        width: 100%;
+      }
+
+      .grid,
+      .impact,
+      .field-grid,
+      .tab-buttons {
+        grid-template-columns: 1fr;
+      }
+
+      .tab-panel {
+        padding: 22px;
+      }
+
+      section {
+        padding: 72px 0;
+      }
+
+      .about-band {
+        padding: 18px;
+      }
+
+      .about-image {
+        min-height: 320px;
+      }
+
+      .service-logo-img {
+        height: 3.1cm;
+        max-width: 140px;
+      }
+
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        padding-bottom: 70px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-loader" id="pageLoader" aria-label="Chargement de la page">
+    <div class="loader-content">
+      <div class="loader-logo">
+        <img src="logo.png" alt="Logo RuhmAltar Groupe" onerror="this.style.display='none'">
+      </div>
+      <span>Chargement</span>
+    </div>
+  </div>
+
+  <nav class="topbar" aria-label="Navigation principale">
+    <a class="brand" href="#accueil" aria-label="RuhmAltar Groupe">
+      <span class="brand-disc">
+        <img src="logo.png" alt="" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'brand-mark',textContent:'R'}))">
+      </span>
+      <span>RuhmAltar Groupe</span>
+    </a>
+    <div class="nav-links">
+      <a href="#apropos">À propos</a>
+      <a href="#services">Expertises</a>
+      <a href="#equipe">Équipes</a>
+      <a href="#impact">Impact</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a class="btn btn-primary" href="https://wa.me/242055378548" target="_blank" rel="noopener">
+      <i data-lucide="message-circle"></i>
+      WhatsApp
+    </a>
+  </nav>
+
+  <div class="float-nav" aria-label="Raccourcis">
+    <a href="#accueil" aria-label="Accueil"><i data-lucide="home"></i></a>
+    <a href="#apropos" aria-label="À propos"><i data-lucide="info"></i></a>
+    <a href="#services" aria-label="Expertises"><i data-lucide="sparkles"></i></a>
+    <a href="#contact" aria-label="Contact"><i data-lucide="send"></i></a>
+  </div>
+
+  <header class="hero" id="accueil">
+    <div class="overlay"></div>
+
+    <div class="content">
+      <img src="logo.png" alt="Logo RuhmAltar Groupe" class="logo" onerror="this.style.display='none'">
+
+      <h1>RuhmAltar Groupe</h1>
+
+      <p class="subtitle">
+        Élever les talents • Structurer la vision • Créer un impact durable
+      </p>
+
+      <p class="desc">
+        Groupe artistique et entrepreneurial regroupant Altar Record, RuhmAltar Event's et RuhmAltar Gospel.
+      </p>
+
+      <div class="buttons">
+        <a class="btn primary" href="https://wa.me/242055378548" target="_blank" rel="noopener">
+          📲 Nous contacter
+        </a>
+
+        <a class="btn secondary" href="#services">
+          🔎 Découvrir nos services
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="transition-note">
+      <div class="shell">
+        <strong>Bienvenue sur RuhmAltar Web Exposition</strong>
+        <span>Une vitrine digitale pour présenter notre vision, nos pôles et notre impact.</span>
+      </div>
+    </div>
+
+    <section id="apropos">
+      <div class="shell">
+        <div class="section-head center">
+          <span class="eyebrow">RuhmAltar Web Exposition</span>
+          <h2>Une structure créative, stratégique et orientée impact.</h2>
+          <p>Découvrez l'identité de RuhmAltar Groupe à travers ses fondations, sa direction, ses expertises et sa vision.</p>
+        </div>
+
+        <div class="tabs">
+          <div class="tab-buttons" role="tablist" aria-label="Informations RuhmAltar">
+            <button class="tab-button active" type="button" data-tab="tab-apropos">À propos</button>
+            <button class="tab-button" type="button" data-tab="tab-dg">Mot du DG</button>
+            <button class="tab-button" type="button" data-tab="tab-expertises">Expertises</button>
+            <button class="tab-button" type="button" data-tab="tab-vision">Notre vision</button>
+          </div>
+
+          <article class="tab-panel active" id="tab-apropos">
+            <h3>À propos de RuhmAltar</h3>
+            <p>RuhmAltar Groupe est une structure créative et stratégique spécialisée dans la production artistique, l'événementiel et le développement de talents.</p>
+            <p>Nous accompagnons les artistes, porteurs de projets et organisations dans la concrétisation de leurs idées, en mettant l'accent sur la qualité, la structuration et l'impact.</p>
+            <p class="quote">Notre approche repose sur trois piliers : Élever les talents • Structurer la vision • Créer un impact durable.</p>
+          </article>
+
+          <article class="tab-panel" id="tab-dg">
+            <h3>Mot du Directeur Général</h3>
+            <p>« RuhmAltar est né d'une volonté claire : construire une plateforme capable de transformer le potentiel en résultats concrets.</p>
+            <p>Nous ne nous limitons pas à créer, nous structurons, nous développons et nous professionnalisons. Chaque projet est traité avec exigence, stratégie et vision à long terme.</p>
+            <p>Notre ambition est de bâtir un écosystème solide où les talents peuvent évoluer, produire et se positionner durablement sur le marché. »</p>
+            <p class="quote">— Direction Générale</p>
+          </article>
+
+          <article class="tab-panel" id="tab-expertises">
+            <h3>Nos domaines d'expertise</h3>
+            <p>RuhmAltar intervient sur plusieurs axes complémentaires :</p>
+            <ul>
+              <li>Production musicale : studio, enregistrement et direction artistique.</li>
+              <li>Événementiel : organisation, conception et expériences sur mesure.</li>
+              <li>Développement de talents : accompagnement, image et structuration de carrière.</li>
+              <li>Création de contenus : visuels, promotion et branding artistique.</li>
+            </ul>
+          </article>
+
+          <article class="tab-panel" id="tab-vision">
+            <h3>Notre vision</h3>
+            <p>Devenir une référence dans l'accompagnement artistique et la production créative, en proposant des solutions professionnelles adaptées aux réalités du marché africain et international.</p>
+            <p class="quote">Construire, professionnaliser et transmettre une culture d'excellence durable.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="shell">
+        <div class="section-head center">
+          <span class="eyebrow">Nos expertises</span>
+          <h2>Un écosystème pour transformer les idées en projets solides.</h2>
+          <p>RuhmAltar Groupe rassemble les compétences essentielles pour faire grandir les talents et produire des expériences qui restent.</p>
+        </div>
+
+        <div class="grid">
+          <article class="card service-card">
+            <div class="icon-box"><i data-lucide="music-2"></i></div>
+            <h3>Studio & production</h3>
+            <p>Création musicale, arrangements, enregistrement, direction vocale, mixage et accompagnement artistique.</p>
+          </article>
+          <article class="card service-card">
+            <div class="icon-box"><i data-lucide="calendar-days"></i></div>
+            <h3>Event's & expériences</h3>
+            <p>Conception d'événements, coordination terrain, programmation, logistique et exécution professionnelle.</p>
+          </article>
+          <article class="card service-card">
+            <div class="icon-box"><i data-lucide="radio"></i></div>
+            <h3>Label gospel & média</h3>
+            <p>Développement d'artistes, image, diffusion, contenus média et stratégie de croissance autour du message.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="vision">
+      <div class="shell about-band">
+        <div class="about-image" role="img" aria-label="Concert gospel et scène culturelle"></div>
+        <div>
+          <span class="eyebrow">Message du Directeur Général</span>
+          <h2>Une vision qui demande excellence, foi et responsabilité.</h2>
+          <p class="section-copy">
+            RuhmAltar Groupe est plus qu'une structure : c'est une mission. Nous croyons en la transformation des talents, en la discipline, en la création d'un impact durable et en la valorisation d'une jeunesse capable de porter la culture plus haut.
+          </p>
+          <p class="quote">Chaque talent mérite une structure, une direction et un cadre qui l'aident à devenir une réponse pour sa génération.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="transition-note">
+      <div class="shell">
+        <strong>Bonne année 2026 de la part de la team RuhmAltar Groupe</strong>
+        <span>Nouvelle saison, nouvelle discipline, nouvelle dimension.</span>
+      </div>
+    </div>
+
+    <section id="equipe">
+      <div class="shell">
+        <div class="section-head">
+          <span class="eyebrow">Nos équipes</span>
+          <h2>Des pôles complémentaires, une même exigence.</h2>
+          <p>Chaque équipe porte une partie de la vision, avec une culture commune : servir le projet, respecter le détail et élever le résultat.</p>
+        </div>
+
+        <div class="grid">
+          <article class="card team-card">
+            <img src="studio-team.jpg" alt="Équipe studio RuhmAltar" onerror="this.src='https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=900&q=80'">
+            <div class="card-content">
+              <h3>Équipe Studio</h3>
+              <p>Production musicale, ingénierie sonore, coaching vocal et accompagnement des artistes.</p>
+              <div class="pill-row">
+                <span class="pill">Production</span>
+                <span class="pill">Mixage</span>
+                <span class="pill">Coaching</span>
+              </div>
+            </div>
+          </article>
+          <article class="card team-card">
+            <img src="event-team.jpg" alt="Équipe événementielle RuhmAltar" onerror="this.src='https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=900&q=80'">
+            <div class="card-content">
+              <h3>Équipe Event's</h3>
+              <p>Organisation d'événements, scénographie, coordination, accueil et gestion opérationnelle.</p>
+              <div class="pill-row">
+                <span class="pill">Logistique</span>
+                <span class="pill">Scène</span>
+                <span class="pill">Coordination</span>
+              </div>
+            </div>
+          </article>
+          <article class="card team-card">
+            <img src="label-team.jpg" alt="Équipe label gospel RuhmAltar" onerror="this.src='https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=900&q=80'">
+            <div class="card-content">
+              <h3>Équipe Label</h3>
+              <p>Direction artistique gospel, développement d'artistes, contenus, image et stratégie de diffusion.</p>
+              <div class="pill-row">
+                <span class="pill">Gospel</span>
+                <span class="pill">Image</span>
+                <span class="pill">Diffusion</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="impact">
+      <div class="shell">
+        <div class="section-head center">
+          <span class="eyebrow">Impact social & culturel</span>
+          <h2>Faire grandir une culture d'excellence autour des talents locaux.</h2>
+          <p>La musique, les événements et les projets communautaires deviennent des espaces de formation, de valorisation et de transmission.</p>
+        </div>
+        <div class="impact">
+          <div class="impact-item">
+            <strong>01</strong>
+            <span>Valorisation de la jeunesse et des talents émergents.</span>
+          </div>
+          <div class="impact-item">
+            <strong>02</strong>
+            <span>Accompagnement artistique avec cadre, vision et discipline.</span>
+          </div>
+          <div class="impact-item">
+            <strong>03</strong>
+            <span>Production d'événements culturels et gospel porteurs de sens.</span>
+          </div>
+          <div class="impact-item">
+            <strong>04</strong>
+            <span>Développement de projets média et communautaires durables.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="shell contact-wrap">
+        <div class="contact-card">
+          <div>
+            <span class="eyebrow">Contact</span>
+            <h2>Construisons le prochain projet.</h2>
+            <p class="section-copy">Parlez-nous de votre besoin : production, événement, collaboration, accompagnement d'artiste ou projet média.</p>
+          </div>
+          <div class="contact-list">
+            <a class="contact-line" href="https://wa.me/242055378548" target="_blank" rel="noopener">
+              <i data-lucide="message-circle"></i>
+              <span>WhatsApp : +242 05 53 78 548</span>
+            </a>
+            <a class="contact-line" href="tel:+242055378548">
+              <i data-lucide="phone"></i>
+              <span>Appel direct : +242 05 53 78 548</span>
+            </a>
+            <a class="contact-line" href="mailto:secretariat-reception.altar-record@outlook.fr">
+              <i data-lucide="mail"></i>
+              <span>Secrétariat Altar Record : secretariat-reception.altar-record@outlook.fr</span>
+            </a>
+            <a class="contact-line" href="mailto:contact.ruhmaltar-groupe@zohomail.com">
+              <i data-lucide="mail-check"></i>
+              <span>RuhmAltar Groupe : contact.ruhmaltar-groupe@zohomail.com</span>
+            </a>
+            <div class="contact-line">
+              <i data-lucide="map-pin"></i>
+              <span>Congo-Brazzaville et collaborations internationales</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <form id="whatsappForm">
+            <div class="field-grid">
+              <label>
+                Nom
+                <input type="text" name="nom" placeholder="Votre nom">
+              </label>
+              <label>
+                Téléphone
+                <input type="tel" name="telephone" placeholder="+242 ...">
+              </label>
+            </div>
+            <label>
+              Besoin
+              <select name="besoin">
+                <option>Production studio</option>
+                <option>Organisation événementielle</option>
+                <option>Développement artiste</option>
+                <option>Collaboration média</option>
+              </select>
+            </label>
+            <label>
+              Message
+              <textarea name="message" placeholder="Bonjour RuhmAltar Groupe, je souhaite échanger au sujet de..."></textarea>
+            </label>
+            <button class="btn btn-primary" type="submit">
+              <i data-lucide="send"></i>
+              Envoyer sur WhatsApp
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="logos-services">
+      <div class="shell">
+        <div class="section-head center">
+          <span class="eyebrow">Nos marques</span>
+          <h2>Les services qui composent RuhmAltar Groupe.</h2>
+        </div>
+        <div class="service-logos">
+          <div class="service-logo">
+            <img src="altar-record-logo.png" alt="Logo Altar Record" class="service-logo-img">
+            <span>Altar Record</span>
+          </div>
+          <div class="service-logo">
+            <img src="ruhmaltar-events-logo.png" alt="Logo RuhmAltar Event's" class="service-logo-img">
+            <span>RuhmAltar Event's</span>
+          </div>
+          <div class="service-logo">
+            <img src="ruhmaltar-gospel-logo.png" alt="Logo RuhmAltar Gospel" class="service-logo-img">
+            <span>RuhmAltar Gospel</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell footer-inner">
+      <p>© 2026 RuhmAltar Groupe. Vision, création, impact.</p>
+      <div class="socials" aria-label="Réseaux sociaux">
+        <a href="https://wa.me/242055378548" target="_blank" rel="noopener" aria-label="WhatsApp"><i data-lucide="message-circle"></i></a>
+        <a href="#accueil" aria-label="Retour en haut"><i data-lucide="arrow-up"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    if (window.lucide) {
+      lucide.createIcons({ attrs: { width: 19, height: 19, "stroke-width": 2.2 } });
+    }
+
+    const pageLoader = document.querySelector("#pageLoader");
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        pageLoader.classList.add("hide");
+      }, 450);
+    });
+
+    document.querySelectorAll(".tab-button").forEach((button) => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll(".tab-button").forEach((item) => item.classList.remove("active"));
+        document.querySelectorAll(".tab-panel").forEach((panel) => panel.classList.remove("active"));
+        button.classList.add("active");
+        document.querySelector(`#${button.dataset.tab}`).classList.add("active");
+      });
+    });
+
+    const whatsappForm = document.querySelector("#whatsappForm");
+    whatsappForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const data = new FormData(whatsappForm);
+      const message = [
+        "Bonjour RuhmAltar Groupe,",
+        "",
+        `Nom : ${data.get("nom") || "Non renseigné"}`,
+        `Téléphone : ${data.get("telephone") || "Non renseigné"}`,
+        `Besoin : ${data.get("besoin") || "Non renseigné"}`,
+        "",
+        data.get("message") || "Je souhaite échanger avec vous."
+      ].join("\n");
+      window.location.href = `https://wa.me/242055378548?text=${encodeURIComponent(message)}`;
+    });
+  </script>
+</body>
+</html>
